@@ -1,6 +1,8 @@
 const chalk = require('chalk');
 const input = process.argv[2];
 
+//process.argv
+
 console.log(chalk.yellow.underline('connected'));
 
 if (input == 'add') {
