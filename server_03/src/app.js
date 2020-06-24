@@ -1,4 +1,4 @@
-// Email checking & Chalk
+// Validator & Chalk
 
 const validator = require('validator');
 const chalk = require('chalk');
