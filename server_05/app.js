@@ -23,6 +23,14 @@ yargs.command({
 });
 
 yargs.command({
+    command: 'read',
+    describe: 'read an task',
+    handler: function() {
+        console.log('task read');
+    }
+});
+
+yargs.command({
     command: 'edit',
     describe: 'edit an existing task',
     handler: function() {
