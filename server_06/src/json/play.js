@@ -8,7 +8,6 @@ const book = {
 //const bookJSON = JSON.stringify(book);
 //const parsedBook = JSON.parse(bookJSON);
 
-const bookJSON = JSON.stringify(book);
 fs.writeFileSync('book.txt', bookJSON);
 
 const bookBuffer = fs.readFileSync('book-json.json');

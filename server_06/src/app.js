@@ -28,7 +28,7 @@ yargs.command({
     }
 });
 
-//
+// Others:
 
 yargs.command({
     command: 'remove',
