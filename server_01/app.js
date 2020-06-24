@@ -1,5 +1,4 @@
 const fs = require('fs');
-// create server_catch & write ip
 
 function userLog(log){
     fs.writeFileSync('user_log.txt', '');
