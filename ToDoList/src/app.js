@@ -1,6 +1,6 @@
 const yargs = require('yargs');
 const taskModule = require('./modules.js');
-const { argv } = require('process');
+const { argv, title } = require('process');
 const chalk = require('chalk');
 const { string } = require('yargs');
 
@@ -30,13 +30,20 @@ yargs.command({
     }
 });
 
-// Others:
+// Marking Done:
 
 yargs.command({
-    command: 'remove',
-    describe: 'remove an existing task',
-    handler: function () {
-        console.log('task removed');
+    command: 'done',
+    describe: 'done an existing task',
+    builder: {
+        title: {
+            describe: 'mark a task done',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler: function (argv) {
+        taskModule.doneTask(argv.title);
     }
 });
 
