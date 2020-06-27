@@ -8,7 +8,8 @@ const addTask = function (title, task) {
     const tasks = loadTasks();
 
     const doublication = tasks.filter(function (task) {
-        return task.title === title;
+        console.log('kir');
+        return task.title == title;
     });
 
     console.log(doublication.length);
@@ -16,7 +17,7 @@ const addTask = function (title, task) {
     if (doublication == 0) {
         tasks.push({
             title: title,
-            body: task
+            task: task
         });
         console.log(tasks);
         console.log(chalk.green(`task added!`));
@@ -75,8 +76,30 @@ const doneTask = function (title) {
     //console.log(parsedTasks);
 }
 
+const listTask = function () {
+    let tasks = readTasks();
+    let tasksParsed = JSON.parse(tasks);
+    console.log(chalk.blue.underline('list of tasks'));
+    tasksParsed.forEach(task => {
+        console.log(task.title);
+    });
+}
+
+const readTask = function (title) {
+    let tasks = readTasks();
+    let tasksParsed = JSON.parse(tasks);
+    console.log(chalk.blue.underline('Your task'));
+    tasksParsed.forEach(task => {
+        if(task.title === title){
+            console.log(task.body);
+        }
+    });
+}
+
 module.exports = {
     addTask: addTask,
     loadTasks: loadTasks,
-    doneTask: doneTask
+    doneTask: doneTask,
+    listTask: listTask,
+    readTask: readTask
 }

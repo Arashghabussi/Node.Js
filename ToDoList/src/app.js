@@ -47,11 +47,27 @@ yargs.command({
     }
 });
 
+
+yargs.command({
+    command: 'list',
+    describe: 'list of tasks',
+    handler: function () {
+        taskModule.listTask();
+    }
+});
+
 yargs.command({
     command: 'read',
     describe: 'read an task',
-    handler: function () {
-        console.log('task read');
+    builder: {
+        title: {
+            describe: 'mark a task done',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler: function (argv) {
+        taskModule.readTask(argv.title);
     }
 });
 
@@ -60,14 +76,6 @@ yargs.command({
     describe: 'edit an existing task',
     handler: function () {
         console.log('task edited');
-    }
-});
-
-yargs.command({
-    command: 'list',
-    describe: 'list of tasks',
-    handler: function () {
-        console.log('tasks');
     }
 });
 
